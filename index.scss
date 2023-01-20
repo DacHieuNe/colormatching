@@ -1,0 +1,148 @@
+* {
+	box-sizing: border-box;
+}
+@keyframes effect {
+	from {
+		height: 0%;
+	}
+	to {
+		height: 100%;
+	}
+}
+
+@keyframes not-effect {
+	from {
+		height: 100%;
+	}
+	to {
+		height: 0%;
+	}
+}
+@keyframes admin {
+	0% {
+		color: #d63031;
+	}
+	20% {
+		color: #fd79a8;
+	}
+	40% {
+		color: #fab1a0;
+	}
+	60% {
+		color: #e17055;
+	}
+	80% {
+		color: #ff7675;
+	}
+	100% {
+		color: #e84393;
+	}
+}
+.effect {
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		border-radius: inherit;
+		background-color: currentColor;
+		animation: 0.5s forwards effect;
+	}
+}
+.not-effect {
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		border-radius: inherit;
+		background-color: currentColor;
+		animation: 0.5s forwards not-effect;
+	}
+}
+body {
+	margin: 0;
+	display: grid;
+	place-items: center;
+	background-color: #c9f29b;
+	.container {
+		background-color: #fff;
+		padding: 50px;
+		border-radius: 5px;
+		width: 100%;
+		max-width: 320px;
+		text-align: center;
+		.p-color {
+			color: #f73011;
+		}
+		.title {
+			font-size: 24px;
+			font-weight: 600;
+			font-family: monospace, sans-serif;
+			color: #5a228b;
+			padding-bottom: 12px;
+			&-size {
+				font-size: 18px;
+				color: #d63031;
+				text-shadow: 0 0 1px #2d3436;
+				animation: 2s infinite admin;
+			}
+		}
+		p {
+			font-family: mono-space, sans-serif;
+			color: #333;
+			font-size: 15px;
+			font-weight: 600;
+		}
+		.second {
+			line-height: 23px;
+			height: 23px;
+			color: #16453e;
+			font-weight: 900;
+			font-size: 20px;
+		}
+		.list {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 12px;
+			list-style-type: none;
+			margin: 0;
+			padding: 16px 0;
+			.item {
+				position: relative;
+				width: calc(100% / 4);
+				width: 50px;
+				height: 50px;
+				border-radius: 5px;
+				background-color: rgba(0,0,0,0.3);
+			}
+		}
+		.btn {
+			background-color: transparent;
+			position: relative;
+			outline: none;
+			border: none;
+			span {
+				position: relative;
+				z-index: 2;
+				display: inline-block;
+				cursor: pointer;
+				background-color: #fdb731;
+				font-size: 20px;
+				font-family: monospace, sans-serif;
+				text-shadow: 0 4px 1px #d27b30;
+				color: #fff;
+				border-radius: 30px;
+				padding: 10px 20px;
+			}
+		}
+		h3 {
+			margin: 4px 0;
+			font-size: 16px;
+			font-family: monospace, sans-serif;
+			color: #333;
+		}	
+	}
+}
