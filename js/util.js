@@ -34,8 +34,13 @@ export function resetGame(nextGameElement) {
 export function assignColorItem() {
 	var colorRandom = [];
 	for(let i = 0;i < 8;i++) {
-		colorRandom.push(RandomColor());
+		let a = RandomColor();
+		while(a.length < 7) {
+			a = RandomColor();
+		}
+		colorRandom.push(a);
 	}
+	console.log(colorRandom);
 	var set = new Set();
 	while(set.size != 16) {
 		set.add(Math.floor(Math.random() * 16 + 0));
@@ -44,6 +49,8 @@ export function assignColorItem() {
 	var listItem = getListItem();
 	var setSlice = Array.from({length: 8}, (_, i) => set.slice(i*2, i*2+2));
 	setSlice.forEach((e,i) => {
+		console.log(colorRandom[i]);
+		console.log(listItem[e[0]]);
 		listItem[e[0]].style.color = colorRandom[i];
 		listItem[e[1]].style.color = colorRandom[i];
 	});
@@ -55,6 +62,7 @@ function deleteColor(first,second) {
 		second.classList.remove("effect");
 		second.classList.add("not-effect");
 	}else {
+		document.body.style.backgroundColor = first.style.color;
 		win.push(1);
 	}
 	test = [];

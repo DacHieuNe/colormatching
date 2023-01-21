@@ -1,6 +1,6 @@
 import {getPlay, getSecond, getListItem, getH3, getReset} from './selector.js';
 import {handleListItem, assignData, assignColorItem,win,test,resetGame} from "./util.js";
-export var timeRun = 40;
+export var timeRun = 30;
 	
 function assignCursor() {
 	var listItem = getListItem();
@@ -48,7 +48,8 @@ function playGame() {
 function nextGame() {
 	const nextGameElement = getReset();
 	nextGameElement.addEventListener("click", () => {
-		timeRun = 40;
+		timeRun = 30;
+		document.body.style.backgroundColor = "#c9f29b";
 		resetGame(nextGameElement);		
 	});
 }
